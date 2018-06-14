@@ -1,5 +1,7 @@
-# Introduction
-FBBOT is library to do some `hack` to facebook
+# Facebook user stealer
+
+## Introduction
+This library steal user sessions from Facebook.
 
 You can use it to login with your email and password on facebook account (which
 facebook never let you do it)
@@ -11,7 +13,7 @@ auto add friends, ....
 
 ## Disclaimer
 
-This old library needs to use an old _requests_ library, please install meanwhile we are updating:
+This is an old library and needs to use another older libraries meanwhile we are updating the code, please install with:
 
 > pip install requests==0.14.2
 
